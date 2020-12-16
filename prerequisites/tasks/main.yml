@@ -1,0 +1,10 @@
+---
+# tasks file for prerequisites
+
+- name: Install necessary packages
+  package:
+    name:
+      - tree
+      - lolcat
+    state: present
+    update_cache: yes
