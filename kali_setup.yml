@@ -1,7 +1,0 @@
----
-
-- name: configure the kali
-  hosts: localhost
-  become: true
-  roles:
-    - prerequisites

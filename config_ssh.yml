@@ -1,0 +1,27 @@
+---
+- name: config ssh
+  hosts: localhost
+
+  tasks:
+  - name: create the ~/.ssh directory if it does not exist
+    file:
+      path: ~/.ssh
+      state: directory
+      mode: '0700'
+  - name: copy the ssh files
+    copy:
+      src: /mnt/hgfs/Downloads/SSH_keys/id_ecdsa
+      dest: ~/.ssh/id_ecdsa
+      mode: '0600'
+  - name: copy the ssh files
+    copy:
+      src: /mnt/hgfs/Downloads/SSH_keys/id_ecdsa.pub
+      dest: ~/.ssh/id_ecdsa.pub
+      mode: '0644'
+  - name: create the authorized_keys
+    file:
+      path: ~/.ssh/authorized_keys
+      state: touch
+      mode: '0644'
+  - name: Run a script with arguments (free form)
+    script: scripts/ssh_setup.sh
