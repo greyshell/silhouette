@@ -43,12 +43,13 @@ sudo apt install libpango1.0-0
   - trun off password based ssh authentication & restart the ssh service
 
 - add the github user name and email
-``
+```
 git config --global user.email "grey.shell@gmail.com"
 git config --global user.name "ABHIJIT SINHA"
 gpg --import /mnt/hgfs/Downloads/GPG_keys/ABHIJIT\ SINHA\ \(F59D0874\)\ –\ Secret.asc  => provide GPG password
 gpg --list-secret-keys --keyid-format LONG => pick up the secret id
-git config --global user.signingkey AB7AB709F59D0874       
+git config --global user.signingkey AB7AB709F59D0874
+git config --global commit.gpgsign true      
 ```
 
 
