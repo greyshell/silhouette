@@ -23,5 +23,5 @@
       path: ~/.ssh/authorized_keys
       state: touch
       mode: '0644'
-  - name: Run a script with arguments (free form)
+  - name: run a script with arguments (free form)
     script: scripts/ssh_setup.sh
