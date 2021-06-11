@@ -1,6 +1,6 @@
 # silhouette
 
-## playbook to configure kali
+#### playbook to configure my kali
 
 - install ansible by executing `install_ansible.sh`
 
