@@ -1,0 +1,18 @@
+---
+kali:
+  hosts:
+    mac_vm:
+      ansible_host: localhost
+      ansible_connection: local
+      ansible_python_interpreter: /usr/bin/python3
+
+    raspberry_pi:
+      ansible_host: 192.168.0.95
+      ansible_connection: ssh
+      ansible_user: kali
+      ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
+      ansible_python_interpreter: /usr/bin/python3
+
+
+
+

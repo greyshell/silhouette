@@ -1,3 +1,0 @@
----
-- import_playbook: install_packages.yml
-- import_playbook: config_ssh.yml

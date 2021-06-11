@@ -1,18 +1,32 @@
 # silhouette
 
-brief steps to configure my kali.
+## playbook to configure kali
+
+- install ansible by executing `install_ansible.sh`
+
+- verify the inventory.yml
+```
+ansible all --list-hosts -i inventory.yml  
+```
+
+- test remote / target system connectivity
+```
+ansible mac_vm,raspberry_pi -i inventory.yml -m ping
+```
+
+- run playbook on remote system
+```
+# note: no space after comma and before another host
+ansible-playbook -i kali_inventory.yml --extra-vars "hosts=mac_vm,raspberry_pi", kali_playbook.yml
+```
+
+### config tasks
 
 - install the vmtools (SKIP this for 2020.4)
 ```
-cp /media/cdrom0/VMware*.tar.gz . && tar -zxvf VMwareTools-*.tar.gz && cd vmware-tools-distrib/ && \ 
+cp /media/cdrom0/VMware*.tar.gz . && tar -zxvf VMwareTools-*.tar.gz && cd vmware-tools-distrib/ && \
 chmod +x vmware-install.pl && sudo ./vmware-install.pl -d default && cd .. && \
 sudo rm -rf vmware-tools-distrib/ && sudo rm VMwareTools-*.tar.gz
-```
-
-- enable password less sudo.
-- https://www.kali.org/docs/general-use/sudo/
-```
-sudo apt install -y kali-grant-root && sudo dpkg-reconfigure kali-grant-root
 ```
 
 - mount the share folder and pin into the sidebar.
@@ -34,12 +48,12 @@ sudo apt install libpango1.0-0
   - show line, matching bracket, highlight current line, wrap
   - tab width = 2, insert space
   - auto indentation, show status
-  
+
 - configure SSH with git
   - `ssh-add ~/.ssh/id_ecdsa`
   - `sudo passwd root`
   - `cat ~/.ssh/id_ecdsa.pub >> authorized_keys`
-  - copy .ssh/ to root home directory 
+  - copy .ssh/ to root home directory
   - trun off password based ssh authentication & restart the ssh service
 
 - configure git with verified commit with GPG
@@ -49,7 +63,9 @@ git config --global user.name "ABHIJIT SINHA"
 gpg --import /mnt/hgfs/Downloads/GPG_keys/ABHIJIT\ SINHA\ \(F59D0874\)\ –\ Secret.asc  => provide GPG password
 gpg --list-secret-keys --keyid-format LONG => pick up the secret id
 git config --global user.signingkey AB7AB709F59D0874
-git config --global commit.gpgsign true      
+git config --global commit.gpgsign true
+git config --global credential.helper cache
+git config --global credential.helper 'cache --timeout=3600'
 ```
 - create .vimrc file and set line numner, tabstop
 ```
@@ -65,23 +81,29 @@ set softtabstop=2
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
 echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
-echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc       
+echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc
 exec "$SHELL"
 sudo apt-get install build-essential checkinstall libffi-dev python-dev
 sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
-pyenv install 3.9.1  
+pyenv install 3.9.1
 pyenv install 2.7.18
 pyenv virtualenv 2.7.18 alpha
 pyenv virtualenv 3.9.1 playbook
 pyenv virtualenv 3.9.1 venv
-
 ```
 
-- install xrdp
-  - resolve the block mouse pointer issue: /etc/xrdp/xrdp.ini => set new_cursors=false
-  
+- copy the content of the previous zshrc file to new.
+  - set alias tool / custom script
+
 - configure sublime
-  
+- configure pycharm
+  - configure mysql
+  - check if that mysql connection code is working
+- install & configure data grip -> multiple db connection
+- write a python script to connect to those dbs - oracle, mssql and mongodb
+
+- configure clion and ds_algorithm
+  - install afl / check the quemu mode working
 
 - install other languages
 - install the jetbrains products
@@ -99,10 +121,6 @@ pyenv virtualenv 3.9.1 venv
 - install afl -> ask dhaval to provide the script to install the dependency
   - onegadget
   - pwntools
- 
+
 - install docker
 - UI twiks
- 
-
-
-

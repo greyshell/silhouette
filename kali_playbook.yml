@@ -1,0 +1,8 @@
+---
+- name: configure kali
+  hosts: '{{ hosts }}'
+  strategy: free
+  become: true
+
+  roles:
+    - basic

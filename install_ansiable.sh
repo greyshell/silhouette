@@ -9,14 +9,7 @@ sudo apt-add-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible -y
 
 echo -e "[+] remove ansible source from apt/source.list.d \n"
-sudo rm -rf /etc/apt/sources.list.d/ansible-ubuntu-ansible-hirsute.list
-
-echo -e "[+] run ansible playbook \n"
-ansible-playbook silhouette.yml
-if [ $? -gt 0 ]; then
-    echo "[!] error occurred during playbook run"
-    exit 1
-fi
+sudo rm -rf /etc/apt/sources.list.d/ansible-ubuntu-ansible-*.list
 
 echo "[!] finished \n"
 
