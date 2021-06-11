@@ -1,16 +1,14 @@
 ---
-# tasks file for basic
+# tasks file for basic role
 - name: install essential packages
   package:
     name:
-      #      - tree
-      #      - lolcat
-      #      - tig
-      #      - ansible-lint
-      #      - font-manager
-      #      - liblzma-dev
-      #      - cmake
-      #      - sshpass
+      - tree
+      - lolcat
+      - tig
+      - liblzma-dev
+      - cmake
+      - sshpass
       - sl
     state: present
     update_cache: yes

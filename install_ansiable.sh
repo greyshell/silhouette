@@ -12,4 +12,3 @@ echo -e "[+] remove ansible source from apt/source.list.d \n"
 sudo rm -rf /etc/apt/sources.list.d/ansible-ubuntu-ansible-*.list
 
 echo "[!] finished \n"
-

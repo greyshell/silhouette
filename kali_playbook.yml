@@ -1,6 +1,6 @@
 ---
 - name: configure kali
-  hosts: '{{ hosts }}'
+  hosts: '{{ host }}'
   strategy: free
   become: true
 
