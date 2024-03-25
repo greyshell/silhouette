@@ -101,4 +101,10 @@ pyenv virtualenv 3.9.1 venv
   - pwntools
 
 - install docker
+    - https://docs.docker.com/engine/install/linux-postinstall/
+    - https://docs.docker.com/engine/security/rootless/
+
 - UI twiks
+
+- https://github.com/junegunn/fzf
+
