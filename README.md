@@ -1,7 +1,7 @@
 # silhouette
 
 
-## playbook to configure my kali
+## playbook to configure a system
 
 - register all systems in `inventory.yml`
 - create an ansible vault with password and store all systems password in key value format
