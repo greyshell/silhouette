@@ -1,0 +1,7 @@
+---
+- name: Update and upgrade all packages
+  apt:
+    update_cache: yes
+    upgrade: dist
+  register: upgrade_status
+  changed_when: upgrade_status.changed

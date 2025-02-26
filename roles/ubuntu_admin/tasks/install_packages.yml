@@ -1,0 +1,11 @@
+---
+- name: Install required packages if not already installed
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - git
+    - cmake
+    - lolcat
+  register: package_status
+  changed_when: package_status.changed

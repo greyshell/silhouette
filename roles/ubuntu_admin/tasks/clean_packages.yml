@@ -1,0 +1,7 @@
+---
+- name: Remove unused packages and clean the cache
+  apt:
+    autoremove: yes
+    autoclean: yes
+  register: cleanup_status
+  changed_when: cleanup_status.changed

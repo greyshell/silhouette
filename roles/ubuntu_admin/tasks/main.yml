@@ -1,0 +1,10 @@
+---
+# Include multiple task files in a loop
+- name: Include the custom tasks
+  ansible.builtin.include_tasks: "{{ task_file }}"
+  loop:
+    - update_packages.yml
+    - install_packages.yml
+    - clean_packages.yml
+  loop_control:
+    loop_var: task_file
