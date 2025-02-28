@@ -1,0 +1,11 @@
+---
+- name: Copy script to remote system
+  copy:
+    src: stop_services.sh   # Path on the Ansible controller
+    dest: /tmp/stop_services.sh            # Path where the script will be placed on the remote system
+    mode: '0755'                    # Ensure the script is executable
+
+- name: Execute the script on remote system
+  command: /tmp/stop_services.sh         # Path to the script on the remote system
+  # Alternatively, if the script requires shell features, you can use:
+  # shell: /tmp/script.sh
