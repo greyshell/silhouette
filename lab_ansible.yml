@@ -1,6 +1,7 @@
+#  command: ansible-playbook -i inventory.yml lab_ansible.yml --vault-password-file group_vars/all/ansible_vault_password.txt
 ---
 - name: Configure system
-  hosts: all
+  hosts: exploit_dev_ubuntu16  # Use the target host
   strategy: free
   become: true
   vars_files:
@@ -13,6 +14,6 @@
         apply:
           become: yes
       loop:
-        - ubuntu_admin
+        - package_installer
       loop_control:
         loop_var: role_name

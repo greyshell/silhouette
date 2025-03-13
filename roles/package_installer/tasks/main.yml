@@ -5,6 +5,6 @@
   loop:
     - install_packages.yml
     - clean_packages.yml
-    - stop_services.yml
+    # - update_packages.yml
   loop_control:
     loop_var: task_file

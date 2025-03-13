@@ -4,14 +4,18 @@ all:
       ansible_host: 192.168.0.88
       ansible_user: asinha
       ansible_password: "{{ lab_vulnapp_docker_ssh_password }}"
-    lab_awae_docker:
-      ansible_host: 192.168.0.87
+    lab_ansible:
+      ansible_host: 192.168.0.89
       ansible_user: asinha
-      ansible_ssh_pass: "{{ lab_awae_docker_ssh_password }}"
+      ansible_ssh_pass: "{{ lab_ansible_ssh_password }}"
     ubuntu_m3:
       ansible_host: 192.168.0.90
       ansible_user: asinha
       ansible_ssh_pass: "{{ ubuntu_m3_ssh_pass }}"
+    exploit_dev_ubuntu16:
+      ansible_host: 192.168.0.62
+      ansible_user: asinha
+      ansible_ssh_pass: "{{ exploit_dev_ubuntu16_ssh_password }}"
     ubuntu_nuc:
       ansible_host: 192.168.0.100
       ansible_user: asinha
